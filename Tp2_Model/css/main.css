@@ -173,6 +173,8 @@ main section:first-of-type{
     justify-content: space-evenly;
 
     margin: 5% 20%;
+
+    width: auto;
 }
 
 /*---First article---*/
@@ -525,6 +527,7 @@ footer {
     color: white;
 
     height: auto;
+    width: auto;
     padding: 1% 0% 0 5%;
 }
 
