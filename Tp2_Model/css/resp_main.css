@@ -1,7 +1,12 @@
 
 @media (min-width: 0px) and (max-width: 1200px) { 
+
     nav article:nth-child(2){
         display: none;
+    }
+
+    main section:first-of-type{
+        margin: 0;
     }
 
     main section:nth-child(2) , main section:nth-child(4){
@@ -16,15 +21,97 @@
         margin: 0;
     }
     
+   
+
+    /*---FIFTH SECTION---*/
+
+    main section:nth-child(6){
+
+        justify-content: space-around;
+    }
+
+    main section:nth-child(6) article:last-of-type, main section:nth-child(6) article:first-of-type{
+
+        width: 25%;
+    }
+
+    /*-----footer----*/
+
+    footer{
+        padding: 3%;
+    }
+    
     footer section{
         flex-direction: column;
     }
+
+    footer hr{
+        display: none;
+    }
+
+    footer section article, footer section article:nth-child(2) ul, footer section article:nth-child(1) p,footer section article:nth-child(3) > div, footer section article:nth-child(4) > div{
+        margin: 5% 0;
+    }
+
+    footer section article:first-of-type{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        text-align: center;
+    }
+
+    footer section article:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        text-align: center;
+    }
+
+    footer section article:nth-child(2) ul > li{
+        padding: 15% 0;
+    }
+
+    footer section article:nth-child(3){
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    footer section article:nth-child(4){
+    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    footer section article:nth-child(4) div{
+        width: 100%;
+        text-align: center;
+    }
+
  }
 
-@media (max-width: 1199.98px) { 
+@media (min-width: 992px) and (max-width: 1199.98px) { 
     /*-----NAV-----*/
     nav{
         padding: 1% 5% 5% 5%;
+    }
+
+    nav article:first-of-type > div{
+        width: 80%;
+        
+    }
+
+    nav article:last-child{
+        flex-direction: column;
+        align-items: center;
+        text-align:center;
+
+        width: auto;
     }
 
 
@@ -35,30 +122,70 @@
 
     /*-----FOURTH SECTION-----*/
     main section:nth-child(4){
-        margin-top: 5%;
+        margin-top: 10%;
     }
 
     main section:nth-child(5){
         margin: 20% 0 10% 0;
 
     }
+
+    /*---FIFTH SECTION---*/
+
+    main section:nth-child(6) article:last-of-type, main section:nth-child(6) article:first-of-type{
+
+        width: 35%;
+    }
  }
  
- @media (max-width: 991.98px) { 
+ @media (min-width: 768px) and (max-width: 991.98px) { 
     
     /*-----NAV-----*/
     nav{
-        padding: 1% 5% 5% 5%;
+        padding: 5% 1% 5% 1%;
+    }
+    nav article:first-of-type{
+        flex-direction: column;
+        align-items: center;
     }
 
     nav article:first-of-type > div{
-        width: 80%;
+        margin: 3% 0;
+        width: 100%;
+    }
+    nav article:last-child{
+        flex-direction: column;
+        align-items: center;
+        text-align:center;
+
+        width: auto;
     }
 
-
     /*-----FIRST SECTION-----*/
+
     main section:first-of-type{
-        margin: 5% 1%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        margin-top: 3%;
+    }
+
+    main section:first-of-type article:last-child ul li{
+        align-items: center;
+        text-align: left;
+    }
+
+    /*----THIRD SECTION------*/
+
+    main section:nth-child(3) article:last-of-type > div{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    main section:nth-child(3) article:last-of-type > div > div{
+        margin: 10% 1%;
     }
 
     /*-----FOURTH SECTION-----*/
@@ -70,9 +197,27 @@
         margin-top: 30%;
 
     }
+
+    /*---FIFTH SECTION---*/
+
+    main section:nth-child(6){
+
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    main section:nth-child(6) article:first-of-type{
+        text-align: center;
+    }
+
+    main section:nth-child(6) article:last-of-type, main section:nth-child(6) article:first-of-type{
+
+        width: 45%;
+    }
  }
  
- @media (max-width: 767.98px) { 
+ @media (min-width: 576px) and (max-width: 767.98px) { 
 
     /*-----NAV-----*/
     nav{
@@ -108,6 +253,8 @@
         flex-direction: column;
         align-items: center;
         text-align: center;
+
+        margin-top: 3%;
     }
 
     main section:first-of-type article:last-child ul li{
@@ -129,33 +276,189 @@
     }
 
     main section:nth-child(3) article:last-of-type > div > div{
-        margin: 10% 1%;
+        margin: 15% 1%;
     }
 
     /*-----FOURTH SECTION-----*/
 
-    main section:nth-child(5){
-        margin-top: 40%;
+    main section:nth-child(4){
+        margin-top: 20%;
+        height: auto;
 
+    }
+   
+    main section:nth-child(4) article:last-child{
+       flex-wrap: wrap;
+    }
+
+    main section:nth-child(5){
+        margin-top: 5%;
+    }
+
+    main section:nth-child(5) article{
+        flex-wrap: wrap;
+    }
+
+    /*---FIFTH SECTION---*/
+
+    main section:nth-child(6){
+
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    main section:nth-child(6) article:first-of-type{
+        text-align: center;
+    }
+
+    main section:nth-child(6) article:last-of-type, main section:nth-child(6) article:first-of-type{
+
+        width: 55%;
     }
   }
 
  @media (max-width: 575.98px) { 
 
     /*----------NAV---------*/
+    nav{
+        padding: 5% 1% 5% 1%;
+    }
+
+    nav h1{
+        font-size: 3rem !important;
+    }
+
+    nav article:first-of-type{
+        flex-direction: column;
+        align-items: center;
+    }
+    
     nav article:first-of-type div {
         flex-direction: column;
         align-items: center;
         text-align: center;
+
+        margin-top:3% ;
     }
 
-    nav article:first-of-type div div i{
-        align-items: center;
+    nav article:first-of-type div > div i{
+        display: none;
     }
+
+    nav article:last-of-type div:last-of-type{
+        display: flex;
+        flex-direction: column;
+
+        padding: 0 10%;
+    }
+
+    nav article:last-of-type div:last-of-type button:last-of-type{
+        margin: 5% 0;
+
+    }
+
+    nav article:last-child{
+        flex-direction: column;
+        align-items: center;
+        text-align:center;
+
+        width: auto;
+    }
+
+    /*-----FIRST SECTION-----*/
+
+    main section:first-of-type{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        margin-top: 3%;
+    }
+
+    main section:first-of-type article:last-child ul li{
+        align-items: center;
+        text-align: left;
+    }
+
+    /*-----SECOND SECTION-----*/
+
+    main section:nth-child(2){
+        width: 100%;
+    }
+
+    main section:nth-child(2) article:first-of-type{
+        text-align: center;
+    }
+
+    main section:nth-child(2) article:first-of-type i{
+        display: none;
+    }
+
+    main section:nth-child(2) article:first-child > div > div > div{
+        margin: 0;
+    }
+
      /*-----THIRD SECTION-----*/
 
+    main section:nth-child(3) article:last-of-type > div{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     main section:nth-child(3) article:last-of-type > div > div{
-        margin: 13% 1%;
+        margin: 20% 1%;
+    }
+
+    /*-----FOURTH SECTION-----*/
+
+    main section:nth-child(4){
+        margin-top: 20%;
+        height: auto;
+
+    }
+
+    main section:nth-child(4) article:last-child{
+        flex-wrap: wrap;
+    }
+
+    main section:nth-child(4) article:last-of-type > div{
+        margin: 7% 0;
+    }
+
+    main section:nth-child(5){
+        margin-top: 5%;
+    }
+
+    main section:nth-child(5) article{
+        flex-wrap: wrap;
+    }
+
+   
+
+    /*---FIFTH SECTION---*/
+
+    main section:nth-child(6){
+
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    main section:nth-child(6) article:first-of-type{
+        text-align: center;
+    }
+
+    main section:nth-child(6) article:last-of-type, main section:nth-child(6) article:first-of-type{
+
+        width: 100%;
+    }
+
+    /*-----FOOTER------*/
+
+    footer section article:nth-child(1) p, footer section article{
+        margin: 15% 0;
     }
 
 }

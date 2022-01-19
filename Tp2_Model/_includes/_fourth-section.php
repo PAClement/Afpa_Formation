@@ -5,7 +5,7 @@
     </article>
     <article>
         <div>
-            <i class="fas fa-thumbtack"></i>
+            <i class="fas fa-quote-right"></i>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Amet, reprehenderit!</p>
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -15,7 +15,7 @@
             </div>
         </div>
         <div>
-            <i class="fas fa-thumbtack"></i>
+            <i class="fas fa-quote-right"></i>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati! Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, dolorem.</p>
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -25,7 +25,7 @@
             </div>
         </div>
         <div>
-            <i class="fas fa-thumbtack"></i>
+            <i class="fas fa-quote-right"></i>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur, obcaecati! Lorem ipsum, dolor sit amet consectetur adipisicing elit. Culpa, molestiae.</p>
             <div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

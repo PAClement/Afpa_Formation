@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 html,body{
     margin: 0;
+    overflow-x: hidden; 
 }
 
 body{
@@ -382,13 +383,6 @@ main section:nth-child(4) article:last-child > div{
 main section:nth-child(4) article:last-child > div > div{
     display: flex;
     justify-content: left;
-}
-
-main section:nth-child(4) article:last-child > div > div {
-    
-    display: flex;
-    justify-content: left;
-    align-items: center;
 }
 
 /*--icon--*/
