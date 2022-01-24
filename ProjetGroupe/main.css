@@ -5,21 +5,33 @@ html,body{
     font-family: Helvetica, Arial, sans-serif;
 }
 
+a{
+    text-decoration: none;
+    color: white;
+}
+
 /*==========================
 ----------HEADER------------
 ==========================*/
 
 /*---NAV---*/
 
+#menuToggle{
+    display: none;
+}
+
 header nav{
-    background: linear-gradient(180deg, rgba(115,0,255,1) 0%, rgba(169,0,202,1) 73%, rgba(203,0,168,1) 100%);
+    background: linear-gradient(0.25turn, #6752ed 0%, #9f47f7 73%, #b842fb 100%);
 
     display: flex;
     justify-content: space-between;
 
-    padding: 3vh 1%;
+    padding: 2vh 1%;
+    width: auto;
 
     color: white;
+
+    align-items: center;
 }
 
 header nav ul{
@@ -29,11 +41,15 @@ header nav ul{
     margin: 0;
     padding: 0;
 
-    align-items: center;
+    width: 45%;
+
 }
 
 header nav ul li{
-    padding: 0 5%;
+    display: flex;
+    justify-content: center;
+
+    padding: 0 3%;
 }
 
 header nav h1{
@@ -41,6 +57,8 @@ header nav h1{
     padding: 0;
 
     text-transform: uppercase;
+
+    width: 20%;
 }
 
 /*--- Header-content---*/
@@ -51,9 +69,11 @@ header .header_content{
 
     background-repeat: no-repeat;
     background-size: cover;
+
+    width: 100%;
 }
 
-header > .header_content .container{
+header .header_content .container{
     width: 70%;
     margin: 0 auto;
 }
@@ -78,8 +98,8 @@ header .header_content p{
     color: rgb(199, 199, 199);
 }
 
-header .header_content button{
-    background:rgba(115,0,255,1);
+header .header_content .global_button{
+    background:#6752ed;
     border: none;
     border-radius:28px;
 
@@ -89,6 +109,46 @@ header .header_content button{
     cursor: pointer;
 
     padding:16px 31px;
+}
+
+/*--------- BTN SEARCH ---------*/
+
+header nav .search_content form{
+    display: flex;
+    justify-content: right;
+}
+
+header .search_content form button{
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #ffffff65;
+    color: rgba(255, 255, 255, 0.788);
+    font-size: 17px;
+    cursor: pointer;
+
+    border: none;
+    border-top-right-radius: 28px;
+    border-bottom-right-radius: 28px;
+}
+
+header .search_content form input[type = search]{
+    margin:0;
+    padding: 10px 0 10px 20px;
+    font-size: 17px;
+    float: left;
+    width: 60%;
+    background: #ffffff65;
+
+    border: none;
+    border-top-left-radius: 28px;
+    border-bottom-left-radius: 28px;
+
+    outline: none;
+}
+
+header .search_content form input::placeholder{
+    color: rgba(255, 255, 255, 0.788);
 }
 
 /*==========================
