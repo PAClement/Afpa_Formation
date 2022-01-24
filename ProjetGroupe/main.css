@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+html,body{
+    margin: 0;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/*==========================
+----------HEADER------------
+==========================*/
+
+/*---NAV---*/
+
+header nav{
+    background: linear-gradient(180deg, rgba(115,0,255,1) 0%, rgba(169,0,202,1) 73%, rgba(203,0,168,1) 100%);
+
+    display: flex;
+    justify-content: space-between;
+
+    padding: 3vh 1%;
+
+    color: white;
+}
+
+header nav ul{
+    display: flex;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    align-items: center;
+}
+
+header nav ul li{
+    padding: 0 5%;
+}
+
+header nav h1{
+    margin: 0;
+    padding: 0;
+
+    text-transform: uppercase;
+}
+
+/*--- Header-content---*/
+
+header .header_content{
+    background: linear-gradient(rgba(0, 0, 0, 0.507), rgba(0, 0, 0, 0.507)),url('img/header_background.jpg');
+    padding: 10% 0;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+header > .header_content .container{
+    width: 70%;
+    margin: 0 auto;
+}
+
+header .header_content h2{
+    color: white;
+
+    font-size: 5rem;
+    font-weight: bold;
+
+    margin:0;
+}
+
+header .header_content h2 span{
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+}
+
+header .header_content p{
+    margin: 3% 0;
+
+    color: rgb(199, 199, 199);
+}
+
+header .header_content button{
+    background:rgba(115,0,255,1);
+    border: none;
+    border-radius:28px;
+
+    font-size:17px;
+    color: white;
+
+    cursor: pointer;
+
+    padding:16px 31px;
+}
+
+/*==========================
+----------FOOTER------------
+==========================*/
+

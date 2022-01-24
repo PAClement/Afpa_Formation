@@ -50,7 +50,8 @@ h6{
 
 nav{
     background: linear-gradient(rgba(0, 0, 0, 0.705), rgba(0, 0, 0, 0.705)),url('../img/nav.png');
-    background-size: cover;
+    background-size:cover;
+    background-position: center;
     width: auto;
     height: auto;
 

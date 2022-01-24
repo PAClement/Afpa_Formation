@@ -323,6 +323,8 @@
     /*----------NAV---------*/
     nav{
         padding: 5% 1% 5% 1%;
+        background-image: none;
+        background-color: rgb(51, 51, 51);
     }
 
     nav h1{
