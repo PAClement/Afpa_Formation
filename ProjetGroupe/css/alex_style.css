@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+}
+
+/* SYSTEMATIC */
+
+.systematic {
+  display: flex;
+  justify-content: center;
+}
+
+section .text_degrade {
+  background: rgb(115, 0, 255);
+  background: linear-gradient(180deg, rgba(115, 0, 255, 1) 0%, rgba(169, 0, 202, 1) 73%, rgba(203, 0, 168, 1) 100%);
+  color: white;
+  width: 50%;
+  padding: 8%;
+}
+
+section .text_degrade h2,
+.recent_posts h2,
+.contact h2 {
+  font-size: 2rem;
+}
+
+section .text_degrade p {
+  color: #bbbbbb;
+  font-size: 1rem;
+}
+
+.systematic > img {
+  width: 50%;
+}
+
+.text_degrade img {
+  width: 60%;
+}
+
+/* RECENT POSTS */
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.recent_posts {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recent_posts .posts {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10%;
+}
+
+.recent_posts .title {
+  width: 70%;
+  text-align: center;
+  padding: 10% 15%;
+}
+
+.recent_posts .post {
+  width: 31%;
+}
+
+.recent_posts .post img {
+  width: 100%;
+}
+
+.recent_posts a {
+  text-decoration: none;
+  color: #7300ff;
+}
+
+.recent_posts .post h3 {
+  font-size: 1.3rem;
+}
+
+.recent_posts .post p {
+  color: #7780aa;
+}
+
+/* CONTACT */
+
+.contact {
+  background-color: #7300ff;
+  color: white;
+}
+
+.contact p {
+  color: #bbbbbb;
+}
+
+.contact .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact .container div {
+  width: 65%;
+  margin: 9% 0 4% 0;
+}
+
+.contact button {
+  width: 20%;
+  background-color: #7300ff;
+  text-decoration: none;
+  color: white;
+  border: 1px solid white;
+  border-radius: 50px;
+  padding: 2% 1%;
+  text-align: center;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .systematic {
+    display: block;
+  }
+
+  section .text_degrade {
+    width: 80%;
+    padding: 10%;
+  }
+
+  .systematic > img {
+    width: 100%;
+  }
+
+  .recent_posts .title {
+    width: 80%;
+    padding: 10% 10%;
+  }
+
+  .recent_posts .posts {
+    flex-wrap: wrap;
+  }
+
+  .recent_posts .post {
+    width: 95%;
+    margin: 5%;
+  }
+
+  .contact .container {
+    flex-wrap: wrap;
+  }
+
+  .contact .container div {
+    width: 90%;
+  }
+
+  .contact button {
+    width: 45%;
+    padding: 5%;
+    margin-bottom: 10%;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .systematic {
+    display: block;
+  }
+
+  section .text_degrade {
+    width: 80%;
+    padding: 10%;
+  }
+
+  .systematic > img {
+    width: 100%;
+  }
+
+  .recent_posts .title {
+    width: 80%;
+    padding: 10% 10%;
+  }
+
+  .recent_posts .posts {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .recent_posts .post {
+    width: 48%;
+    margin: 1%;
+  }
+
+  .contact .container {
+    flex-wrap: wrap;
+  }
+
+  .contact .container div {
+    width: 90%;
+  }
+
+  .contact button {
+    width: 40%;
+    padding: 4%;
+    margin-bottom: 8%;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  section .text_degrade {
+    padding: 4%;
+  }
+
+  .recent_posts .title {
+    width: 80%;
+    padding: 10% 10%;
+  }
+
+  .recent_posts .posts {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .recent_posts .post {
+    width: 48%;
+    margin: 1%;
+  }
+
+  .contact .container div {
+    width: 60%;
+  }
+
+  .contact button {
+    width: 30%;
+    padding: 3% 2%;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  section .text_degrade {
+    padding: 5%;
+  }
+  .contact button {
+    width: 25%;
+  }
+}

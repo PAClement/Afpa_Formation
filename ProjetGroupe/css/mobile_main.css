@@ -1,9 +1,24 @@
 
 @media (max-width: 575.98px) { 
+    footer .container {
+        display: block;
+        text-align: center;
+    }
+    footer .container .adress_container .social_icon{
+        margin: 15% 0;
+    }
 
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) { 
+    footer .container {
+        display: block;
+        text-align: center;
+    }
+
+    footer .container .adress_container .social_icon{
+        margin: 15% 0;
+    }
 
 }
 
@@ -32,10 +47,16 @@
         display: flex;
         justify-content: center;
     }
+
+    footer .container{
+        width: 90%;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199.98px) { 
-
+    footer .container{
+        width: 90%;
+    }
 }
 
 /*====================================*/
@@ -48,8 +69,27 @@
         display: none;
     }
 
+    header .header_content form{
+        display: flex;
+        justify-content: center;
+
+        margin-bottom: 3%;
+    }
+    
+    header .header_content{
+        padding: 5% 0;
+    }
+
+    header .header_content .container{
+        width: 90%;
+    }
+
     header .header_content .container{
         text-align: center;
+    }
+
+    header .header_content h2{
+        font-size: 3rem;
     }
 
     #menuToggle{

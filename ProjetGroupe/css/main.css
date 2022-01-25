@@ -7,7 +7,6 @@ html,body{
 
 a{
     text-decoration: none;
-    color: white;
 }
 
 /*==========================
@@ -18,6 +17,10 @@ a{
 
 #menuToggle{
     display: none;
+}
+
+header a{
+    color: white;
 }
 
 header nav{
@@ -64,7 +67,7 @@ header nav h1{
 /*--- Header-content---*/
 
 header .header_content{
-    background: linear-gradient(rgba(0, 0, 0, 0.507), rgba(0, 0, 0, 0.507)),url('img/header_background.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.507), rgba(0, 0, 0, 0.507)),url('../img/header_background.jpg');
     padding: 10% 0;
 
     background-repeat: no-repeat;
@@ -118,7 +121,7 @@ header nav .search_content form{
     justify-content: right;
 }
 
-header .search_content form button{
+header form button{
     float: left;
     width: 20%;
     padding: 10px;
@@ -132,10 +135,11 @@ header .search_content form button{
     border-bottom-right-radius: 28px;
 }
 
-header .search_content form input[type = search]{
+header form input[type = search]{
     margin:0;
     padding: 10px 0 10px 20px;
     font-size: 17px;
+    color: white;
     float: left;
     width: 60%;
     background: #ffffff65;
@@ -147,11 +151,83 @@ header .search_content form input[type = search]{
     outline: none;
 }
 
-header .search_content form input::placeholder{
+header form input::placeholder{
     color: rgba(255, 255, 255, 0.788);
+}
+
+header .header_content form{
+    display: none;
 }
 
 /*==========================
 ----------FOOTER------------
 ==========================*/
 
+footer{
+    background: #f4f9fd;
+    padding: 3% 0;
+}
+
+footer a{
+    color: #7780aa;
+}
+
+footer > p{
+    text-align: center;
+    margin-top: 3%;
+}
+
+footer p, footer li{
+    color: #7780aa;
+}
+
+footer .container{
+    width: 70%;
+    margin: 0 auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+footer .container ul{
+    list-style: none;
+
+    padding: 5% 0;
+}
+
+footer .container li{
+    line-height:35px;
+    color:#7780aa ;
+}
+
+footer .container p{
+    line-height: 25px;
+}
+
+footer .container h3{
+    font-size: 1.5rem;
+    color: #333;
+    letter-spacing: -2px;
+    word-spacing: 3px;
+}
+
+footer .container h4{
+    font-size: 1.3rem;
+    color: #444;
+    margin-bottom: 0;
+}
+
+footer .container .adress_container .social_icon{
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .container .adress_container svg{
+    width: 32px;
+    height: 32px;
+
+    fill: #6752ed;
+    border-radius: 50%;
+    background: white;
+}

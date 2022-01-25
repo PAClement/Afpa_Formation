@@ -1,0 +1,167 @@
+
+.evan_section .temoignages_container{
+  margin: 5% auto !important;
+}
+
+.evan_section .container {
+  /* border: 3px solid #ff0000; */
+  width: 70%;
+  height: 50%;
+  margin: 0 auto;
+}
+
+.evan_section .container h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #283a5e;
+  margin-bottom: 3%;
+}
+
+.temoignages {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.temoignage {
+  width: 48%;
+  margin-bottom: 3%;
+}
+
+.texte-temoignage {
+  /* background-color: rgb(0, 255, 136); */
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 3%;
+}
+
+.texte-temoignage i {
+  font-size: 1.5rem;
+  color: #b942fb;
+}
+
+.texte-temoignage p {
+  width: 92%;
+  /* background-color: red; */
+  font-size: 1.2rem;
+  color: #6f7aa5;
+}
+
+.auteur {
+  /* background-color: yellow; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2%;
+}
+
+.auteur p {
+  width: 90%;
+  font-size: 0.8rem;
+}
+
+.auteur p::first-line {
+  font-size: 1rem;
+}
+
+.auteur img {
+  width: 7%;
+
+  border-radius: 50%;
+}
+
+
+
+/* =========RESPONSIVE============  */
+
+@media (max-width: 575.98px) {
+  .evan_section .container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #283a5e;
+    margin-bottom: 10%;
+  }
+
+  .temoignages {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5%;
+  }
+
+  .temoignage {
+    width: 87%;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+
+  .evan_section .container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #283a5e;
+    margin-bottom: 10%;
+  }
+
+  .temoignages {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5%;
+  }
+
+  .temoignage {
+    width: 87%;
+  }
+ 
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+  .evan_section .container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #283a5e;
+    margin-bottom: 10%;
+  }
+
+  .temoignages {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5%;
+  }
+
+  .temoignage {
+    width: 87%;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+
+  .evan_section .container h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #283a5e;
+    margin-bottom: 10%;
+  }
+
+  .temoignages {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5%;
+  }
+
+  .temoignage {
+    width: 87%;
+  }
+
+}
+
+@media (min-width: 1200px) {
+}
+
+
