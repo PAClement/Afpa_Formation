@@ -104,7 +104,7 @@ for (let i = 1; i <= 6; i++) {
 
     switch (i) {
         case 1:
-            build += tab.length;
+            build += eleves.length;
             break;
         case 2:
             build += tab.reduce((a, b) => a + b) / tab.length;
