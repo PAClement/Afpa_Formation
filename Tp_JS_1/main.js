@@ -88,14 +88,16 @@ let nul = "";
 let table = "<table><tr><th>Nombre élèves</th><th>Moyenne</th><th>Nom Meilleur élève</th><th>Note Max</th><th>Nom Pire élève</th><th>Note min</th></tr><tr id=\"info\"></tr></table>"
 
 tab = eleves.map((target) => {
+
+
     return target.note
 });
 
 for (let i = 0; i < eleves.length; i++) {
-
     eleves[i].note === Math.min(...tab) ? nul += eleves[i].prenom + " " : "";
     eleves[i].note === Math.max(...tab) ? best += eleves[i].prenom + " " : "";
 }
+
 
 let build = "";
 for (let i = 1; i <= 6; i++) {
