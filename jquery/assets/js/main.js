@@ -123,3 +123,23 @@ $("[for='capitale']").text("le chef lieu du pas de calais");
 $(".test-btn").click(function () {
     alert("test bouton");
 });
+
+//----------------------------------------
+
+//La fonction prepend : ajoute du contenu au debut du selecteur (à l’intérieur et en premier lieu)
+
+//$(".extensible").prepend("contenu d'extension au debut<br/>");
+
+//La fonction append() : ajoute du contenu à la fin du selecteur (à l’intérieur et en dernier lieu)
+
+//-------------------------------------
+
+// La fonction remove() : supprime un element du DOM
+
+$(".supprimer").remove();
+
+//-------------------------------------------------
+
+// Pour accéder et pour modifier les attributs d’un element, on utilise la fonction attr() 
+
+console.log($("a").attr("href"));
