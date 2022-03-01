@@ -85,6 +85,9 @@
             <span>span petit fils</span>
         </li>
     </ul>
+
+    <div class="div-eleve" data-role="eleve" data-info='{"note1":"15","note2":"19"}'>div des infos</div>
+
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/main.js"></script>
 </body>

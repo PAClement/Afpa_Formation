@@ -69,6 +69,7 @@ $(".dom :submit").parent().css({ "color": "yellowgreen", "background-color": "pu
 // $("span").closest("ul").css({ "color": "black", "border": "2px solid black" });
 
 $("span").closest(".dom").css({ "font-size": "2em" });
+
 //---------------------------------------------------------
 
 //La fonction next() : retourne le frere suivant d’un selecteur
@@ -143,3 +144,90 @@ $(".supprimer").remove();
 // Pour accéder et pour modifier les attributs d’un element, on utilise la fonction attr() 
 
 console.log($("a").attr("href"));
+
+
+//-----------------------------------------------
+
+//Ex : créer un input qui demande la capitale de la France, apres deux div ayant les classes reponse et resultat et un bouton submit que lorsqu’on clique dessus teste si la valeur tapée est ‘’paris’’, mettre
+// ‘’Votre réponse est correcte’’ dans la div reponse sinon ‘’Réponse erronée !’’ avec une ecriture et une bordure rouge et dans la zone reponse la bonne reponse.
+// Enfin, on affiche le score 10/10 ou 0/10 dans la div resultat.
+
+
+// $(document).ready(function () {
+//     $(".dom input[type='submit']").click(function () {
+//         if ($("#capitale").val().toLowerCase() === "paris") {
+//             $(".reponse").html(`<span style="color:green">bonne réponse </span>`);
+//             $(".resultat").html("10/10");
+//         } else {
+//             $(".reponse").html(`<span style="color:red">mauvaise réponse </span>`);
+//             $(".resultat").html("0/10");
+//         }
+
+//         $("#capitale").val("");
+//     });
+// });
+
+// console.log("p =" + $("p:first-of-type").attr('class'));
+
+
+// let notes = $(".div-eleve").data("info");
+// let moyenne = (Number(notes.note1) + Number(notes.note2)) / 2;
+
+// console.log(moyenne);
+
+// $(".div-data").attr('data-role', 'admin');
+
+$(".div-data").data("info").prenom = "junior";
+
+console.log($(".div-data").data('info'));
+
+//--------------------------------------------------------------
+
+// Ex : changer le prenom de Ryan à Ryan junior
+
+$(document).ready(function () {
+    $(".div-data").data("info").prenom = "ryan junior";
+
+    console.log($(".div-data").data("info").prenom = "ryan junior");
+
+});
+
+
+//---------------------------------
+
+//NB : la fonction data() change les données dans la memoire et PAS DANS LE DOM
+
+//pour recupérer les données data- au format json, la fonction data() est la plus adaptée puisqu'elle lit le format json directement (sans avoir recours à la conversion)
+
+//pour changer les valeur dans le DOM, il faut utiliser la fonction attr(), dans le cas du json, une conversion est nécessaire
+// JSON.parse : de chaine vers objet json
+// JSON.stringify : d'objet vers une chaine
+// ======
+
+//ex : meme enonce en changeant la valeur dans le DOM
+
+// $(".div-data").attr("data-info"); //  retourne la valeur {nom:"HIDRI", prenom:"Ryan"}
+// mais le navigateur l'interprete comme etant une chaine de caractère
+// d'ou la necessite de la convertir en objet json ==> le navigateur va la prendre comme un objet
+objet = JSON.parse($(".div-data").attr("data-info"));
+objet.prenom = "Ryan Junior";
+
+// une fois que j'ai fait le changement, je le convertit en chaine de nouveau
+$(".div-data").attr("data-info", JSON.stringify(objet)); // changer une velaur élementaire
+
+let chaineJson = $(".div-data").attr("data-info");  // attr va le retourner en tant que chaine de caracteres
+
+//EXPLICATION PLUS DETAILLEE
+
+// objet = JSON.parse(chaineJson);
+
+
+// objet.prenom = "Ryan Junior";
+
+// let chaineJson2 = JSON.stringify(objet); // convertit le json en chaine
+
+// $(".div-data").attr("data-info", chaineJson2);
+
+//----------------------------------------------+
+
+$('.lien-supp').removeAttr("class");
