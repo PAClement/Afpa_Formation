@@ -429,7 +429,7 @@ $('.change-style-btn').click(function () {
 // $(selecteur).val(nvValeur); // met à jour la valeur d’un element de form
 
 
-$('.change-name').click(function () {
+$('.maj-form-btn').click(function () {
     $('#nom').val('paquentin');
     $('#prenom').val('clement');
 });

@@ -1,20 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JQuery cours</title>
+    <title>Liste de mot clés</title>
 
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
 </head>
 
 <body>
+    <nav class="navbar navbar-light bg-dark  mb-3">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 text-white">Listes de mots clés</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form action="">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Nom produit</span>
+                <input type="text" class="form-control" id="test" placeholder="Nom produit" aria-label="Username"
+                    aria-describedby="basic-addon1" required>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Marque</span>
+                <input type="text" class="form-control" placeholder="Marque" aria-label="Username"
+                    aria-describedby="basic-addon1" required>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Modèle</span>
+                <input type="text" class="form-control" placeholder="modele" aria-label="Username"
+                    aria-describedby="basic-addon1" required>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Référence</span>
+                <input type="text" class="form-control" placeholder="reference" aria-label="Username"
+                    aria-describedby="basic-addon1" required>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Spécification</span>
+                <input type="text" class="form-control" placeholder="specification" aria-label="Username"
+                    aria-describedby="basic-addon1" required>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-info mt-3 w-50 py-2 fs-3">Générer</button>
+            </div>
+        </form>
+        <div class="input-group mt-5">
+            <span class="input-group-text">Listes</span>
+            <textarea class="form-control" rows="8" aria-label="With textarea"></textarea>
+        </div>
+    </div>
+
+    <div class="copy d-flex flex-column align-items-center d-none">
+        <button type="button" class="btn btn-danger w-40 mt-3 copy">&#10063; Copier mots
+            clés</button>
+        <h5 class="d-none">Text copié !</h5>
+    </div>
+
+
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/main.js"></script>
+
 </body>
 
 </html>

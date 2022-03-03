@@ -154,8 +154,6 @@
     <button class="trigger-para">trigger para</button>
     <button class="change-style-btn">nv parabtn</button>
 
-    <button class="change-name">CHANGER INPUT BUTTON</button>
-
     <a class="no-link trigger-link" target="_BLANK" href="https://github.com/">je suis le lien</a>
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
