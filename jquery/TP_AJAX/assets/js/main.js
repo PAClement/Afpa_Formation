@@ -10,8 +10,10 @@ $(document).ready(function () {
     request.done(function (response) {
 
         let display = '';
-        response.map((target) => {
-            display += `
+        response
+            .filter((target) => target.userId === 1)
+            .map((target) => {
+                display += `
             <div class="card m-1" style="width: 18rem;">
                 <div class="card-header bg-white border-0">
                     <button type="button" class="btn btn-primary">Numéro de la tâche : <span class="badge bg-white text-dark">${target.id}</span></button>
@@ -24,7 +26,7 @@ $(document).ready(function () {
                 </div>
             </div>
             `;
-        });
+            });
 
         $('#root').html(display);
     });

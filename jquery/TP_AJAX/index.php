@@ -20,6 +20,13 @@
     <div class="container">
         <div class="row">
             <div class="col mt-3">
+                <div id="users" class="row d-flex justify-content-center">
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col mt-3">
                 <div id="root" class="row d-flex justify-content-center">
                 </div>
             </div>
@@ -29,6 +36,7 @@
 
     <script src="assets/js/jquery-3.6.0.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/users.js"></script>
 </body>
 
 </html>
