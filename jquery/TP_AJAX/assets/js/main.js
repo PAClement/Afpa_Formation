@@ -10,22 +10,20 @@ $(document).ready(function () {
     request.done(function (response) {
 
         let display = '';
-        let i = 0;
-        response.map(() => {
+        response.map((target) => {
             display += `
             <div class="card m-1" style="width: 18rem;">
                 <div class="card-header bg-white border-0">
-                    <button type="button" class="btn btn-primary">Numéro de la tâche : <span class="badge bg-white text-dark">${response[i].id}</span></button>
+                    <button type="button" class="btn btn-primary">Numéro de la tâche : <span class="badge bg-white text-dark">${target.id}</span></button>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">${response[i].title}</p>
+                    <p class="card-text">${target.title}</p>
                 </div>
                 <div class="card-footer bg-white border-0">
-                    ${response[i].completed ? `<button type="button" class="btn btn-success">Terminée</button>` : `<button type="button" class="btn btn-warning">En cours</button>`}
+                    ${target.completed ? `<button type="button" class="btn btn-success">Terminée</button>` : `<button type="button" class="btn btn-warning">En cours</button>`}
                 </div>
             </div>
             `;
-            i++;
         });
 
         $('#root').html(display);
