@@ -14,7 +14,7 @@
 
 <body>
     <nav class="py-3 bg-light">
-        <p class=" mb-0 fs-1 text-center">Liste des tâches</p>
+        <p class=" mb-0 fs-1 text-center">Liste des users et des tâches</p>
     </nav>
 
     <div class="container">
