@@ -36,8 +36,8 @@
       "address": "",
       "email": "papyconfig@hotmail.fr",
       "tel": "",
-      "category": "Travail",
-      "isModify": "1646834245518"
+      "category": "Ami",
+      "isModify": "1646840657829"
     },
     {
       "id": "1646830548456",
@@ -65,8 +65,8 @@
       "address": "",
       "email": "man.fr",
       "tel": "",
-      "category": "Travail",
-      "isModify": "1646833273443"
+      "category": "Ami",
+      "isModify": "1646840649260"
     },
     {
       "id": "1646834407991",
@@ -87,6 +87,25 @@
       "tel": "911",
       "category": "Travail",
       "isModify": "1646834511103"
+    },
+    {
+      "id": "1646840541314",
+      "nom": "Doe",
+      "prenom": "Jane",
+      "address": "",
+      "email": "Johndoe@hotmail.fr",
+      "tel": "",
+      "category": "Autres",
+      "isModify": "1646840606326"
+    },
+    {
+      "id": "1646840581226",
+      "nom": "Doe",
+      "prenom": "Jane",
+      "address": "",
+      "email": "Jane.Doe@gmail.com",
+      "tel": "",
+      "category": "Autres"
     }
   ]
 }

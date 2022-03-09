@@ -113,10 +113,10 @@ $(document).ready(function () {
                                         <div class="form-group">
                                             <label for="category">Choose category :</label>
                                             <select id="category_${target.id}" class="custom-select">
-                                                <option value="autres" selected>Autres</option>
-                                                <option value="famille">Famille</option>
-                                                <option value="ami">Ami</option>
-                                                <option value="travail">Travail</option>
+                                                <option value="autres" ${target.category == "Autres" ? "selected" : ""}>Autres</option>
+                                                <option value="famille"  ${target.category == "Famille" ? "selected" : ""}>Famille</option>
+                                                <option value="ami"  ${target.category == "Ami" ? "selected" : ""}>Ami</option>
+                                                <option value="travail"  ${target.category == "Travail" ? "selected" : ""}>Travail</option>
                                             </select>
                                         </div>
                                         <button type="submit" data-dismiss="modal" id="${target.id}" data-add="addContact" class="btn btn-primary ajout-contact">Ajouter</button>
