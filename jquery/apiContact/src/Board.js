@@ -33,7 +33,7 @@ $(document).ready(function () {
                             <div class="row">
                                 <div class="col">
                                     <span class="h6 font-semibold text-muted text-sm d-block mb-2">Nombre
-                                        d'utilisateur</span>
+                                        d'utilisateurs</span>
                                     <span class="h3 font-bold mb-0">${response.length}</span>
                                 </div>
                             </div>
@@ -59,8 +59,8 @@ $(document).ready(function () {
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">Nombre de compte
-                                        modifié</span>
+                                    <span class="h6 font-semibold text-muted text-sm d-block mb-2">Nombre de comptes
+                                        modifiés</span>
                                     <span class="h3 font-bold mb-0">${edited}</span>
                                 </div>
                             </div>
@@ -90,37 +90,37 @@ $(document).ready(function () {
                 </div>
             </div >
 
-        <script>
-            const dataCategory = {
-                labels: [
-            'Autres',
-            'Ami',
-            'Famille',
-            'Travail'
-            ],
-            datasets: [{
-                label: 'Nombre de category',
-            data: [${category[0]}, ${category[1]}, ${category[2]}, ${category[3]}],
-            backgroundColor: [
-            'rgb(0, 184, 255)',
-            'rgb(214, 0, 255)',
-            'rgb(111, 0, 0)',
-            'rgb(82, 194, 52)'
-            ]
-                    }]
-                };
+            <script>
+                const dataCategory = {
+                    labels: [
+                'Autres',
+                'Ami',
+                'Famille',
+                'Travail'
+                ],
+                datasets: [{
+                    label: 'Nombre de category',
+                data: [${category[0]}, ${category[1]}, ${category[2]}, ${category[3]}],
+                backgroundColor: [
+                'rgb(0, 184, 255)',
+                'rgb(214, 0, 255)',
+                'rgb(111, 0, 0)',
+                'rgb(82, 194, 52)'
+                ]
+                        }]
+                    };
 
-            const config = {
-                type: 'polarArea',
-            data: dataCategory,
-            options: { }
-                };
+                const config = {
+                    type: 'polarArea',
+                data: dataCategory,
+                options: { }
+                    };
 
-            const myChart = new Chart(
-            document.getElementById('myChart'),
-            config
-            );
-        </script>
+                const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+                );
+            </script>
     `;
 
             $('#root').html(boardDisplay);

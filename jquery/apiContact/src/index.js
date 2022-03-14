@@ -18,18 +18,15 @@ $(document).ready(function () {
 
         e.target.dataset.del == "del" ? clientDelete(e.target.dataset.id) : "";
         e.target.dataset.edit == "edit" ? formModif(e.target.dataset.id) : "";
+        e.target.dataset.add == "addContact" ? clientEdit(e.target.id) : "";
 
-        e.target.dataset.annuler == "annuler" ? editAnnul(e.target.dataset.id) : "";
+        e.target.dataset.annuler == "annuler" ? editAnnul() : "";
         e.target.dataset.hide == "hideModal" ? editAnnul() : "";
     });
 
     $(document).on("submit", "form.add", function (e) {
         e.preventDefault();
         clientAdd();
-    });
-
-    $(document).on("click", "[data-add=addContact]", function (e) {
-        clientEdit(e.target.id);
     });
 
     const list = () => {
