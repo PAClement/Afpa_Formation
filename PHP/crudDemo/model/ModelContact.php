@@ -24,21 +24,48 @@ class ModelContact
     {
         $idcon = connexion();
         $requete = $idcon->prepare("
-          SELECT * FROM contacts ;
+          SELECT * FROM contact ;
         ");
         $requete->execute();
         return $requete->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function oneContact($id)
+    {
+        $idcon = connexion();
+        $requete = $idcon->prepare("
+            SELECT * FROM contact WHERE id = ?
+        ");
+        $requete->execute(array($id));
+
+        return $requete->fetch(PDO::FETCH_ASSOC);
     }
 
     function ajoutContact($nom, $prenom, $mail, $tel)
     {
         $idcon = connexion();
         $requete = $idcon->prepare("
-            INSERT INTO `contact` VALUES (null,?,?,?,?)
+            INSERT INTO `contact` (`id`, `nom`, `prenom`, `mail`, `tel`)  VALUES (null,?,?,?,?)
         ");
-        return $requete->execute($nom, $prenom, $mail, $tel);
+        return $requete->execute(array($nom, $prenom, $mail, $tel));
     }
 
+    function modifContact($id, $nom, $prenom, $mail, $tel)
+    {
+        $idcon = connexion();
+        $requete = $idcon->prepare("
+        UPDATE `contact` SET `nom`= ?,`prenom`= ?,`mail`= ?,`tel`= ? WHERE id = ?
+        ");
+        return $requete->execute(array($nom, $prenom, $mail, $tel, $id));
+    }
+
+    function deleteContact($id)
+    {
+        $idcon = connexion();
+        $requete = $idcon->prepare("
+        DELETE FROM `contact` WHERE id = ?        ");
+        return $requete->execute(array($id));
+    }
 
     /*
   
