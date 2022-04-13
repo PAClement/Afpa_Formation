@@ -4,9 +4,28 @@
 class ViewTemplate
 {
 
-    public static function header()
+    public static function head($title)
     {
 ?>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title><?= $title ?></title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+        <style>
+            .icon {
+                font-size: 1.2em;
+            }
+        </style>
+    <?php
+    }
+
+    public static function header()
+    {
+    ?>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
             <a class="navbar-brand">Hey im a navbar</a>
@@ -34,26 +53,33 @@ class ViewTemplate
 
 
         <footer class="text-muted bg-dark text-white py-5">
-            <div class="container">
-                <p class="float-right">
-                    <a href="#">Back to top</a>
-                </p>
-                <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
-                <p>New to Bootstrap? <a href="/">Visit the homepage</a> or read our <a href="/docs/4.6/getting-started/introduction/">getting started guide</a>.</p>
+            <div class="container text-white">
+                <h1>Im a footer</h1>
+                <br>
+                <h2>copyright</h2>
             </div>
         </footer>
 
     <?php
     }
 
-    public static function response($state, $contain)
+    public static function response($state, $contain, $link)
     {
     ?>
         <div class="container my-5">
             <div class="alert alert-<?= $state ?>" role="alert">
                 <?= $contain ?>
             </div>
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading ...</span>
+            </div>
+            Redirection en cours ...
         </div>
+        <script>
+            setInterval(() => {
+                window.location.replace("<?= $link ?>");
+            }, 2000);
+        </script>
 <?php
     }
 }

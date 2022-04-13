@@ -38,8 +38,20 @@ class ViewContact
                                 <td><?= $contact['mail'] ?></td>
                                 <td><?= $contact['tel'] ?></td>
                                 <td>
-                                    <a href="modif.php?id=<?= $contact['id'] ?>"><button type="button" class="btn btn-info">Modifier</button></a>
-                                    <a href="supp.php?id=<?= $contact['id'] ?>"><button type="button" class="btn btn-danger">Supprimer</button></a>
+                                    <a href="modif.php?id=<?= $contact['id'] ?>">
+                                        <button type="button" class="btn btn-info">
+                                            <span class="text-white icon">
+                                                <i class='bx bx-edit-alt py-1'></i>
+                                            </span>
+                                        </button>
+                                    </a>
+                                    <a href="supp.php?id=<?= $contact['id'] ?>">
+                                        <button type="button" class="btn btn-danger">
+                                            <span class="text-white icon">
+                                                <i class='bx bx-trash py-1'></i>
+                                            </span>
+                                        </button>
+                                    </a>
                                 </td>
                             </tr>
                         <?php
@@ -67,15 +79,15 @@ class ViewContact
             <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div class="form-group">
                     <label for="nom">Nom</label>
-                    <input type="text" name="nom" class="form-control" id="nom">
+                    <input type="text" name="nom" class="form-control" id="nom" required>
                 </div>
                 <div class="form-group">
                     <label for="prenom">Prenom</label>
-                    <input type="text" name="prenom" class="form-control" id="prenom">
+                    <input type="text" name="prenom" class="form-control" id="prenom" required>
                 </div>
                 <div class="form-group">
                     <label for="mail">Email</label>
-                    <input type="email" name="mail" class="form-control" id="mail" aria-describedby="emailHelp">
+                    <input type="email" name="mail" class="form-control" id="mail" aria-describedby="emailHelp" required>
                 </div>
                 <div class="form-group">
                     <label for="tel">tel</label>
@@ -98,24 +110,24 @@ class ViewContact
             <h1 class="my-3">Formulaire de modification</h1>
             <div class="row">
                 <div class="col-8">
-                    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+                    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) . '?id=' . $id ?>" method="POST">
 
                         <input type="text" name="id" class="d-none" id="id" value=<?= $him['id'] ?>>
                         <div class="form-group">
                             <label for="nom">Nom</label>
-                            <input type="text" name="nom" class="form-control" id="nom" value=<?= $him['nom'] ?>>
+                            <input type="text" name="nom" class="form-control" id="nom" value='<?= $him['nom'] ?>' required>
                         </div>
                         <div class="form-group">
                             <label for="prenom">Prenom</label>
-                            <input type="text" name="prenom" class="form-control" id="prenom" value=<?= $him['prenom'] ?>>
+                            <input type="text" name="prenom" class="form-control" id="prenom" value='<?= $him['prenom'] ?>' required>
                         </div>
                         <div class="form-group">
                             <label for="mail">Email</label>
-                            <input type="email" name="mail" class="form-control" id="mail" aria-describedby="emailHelp" value=<?= $him['mail'] ?>>
+                            <input type="email" name="mail" class="form-control" id="mail" aria-describedby="emailHelp" value='<?= $him['mail'] ?>' required>
                         </div>
                         <div class="form-group">
                             <label for="tel">tel</label>
-                            <input type="tel" name="tel" class="form-control" id="tel" value=<?= $him['tel'] ?>>
+                            <input type="tel" name="tel" class="form-control" id="tel" value='<?= $him['tel'] ?>' required>
                         </div>
                         <button type="submit" class="btn btn-primary" name="modif">Submit</button>
                     </form>
@@ -134,60 +146,6 @@ class ViewContact
                 </div>
             </div>
         </div>
-        <?php
-    }
-
-    public static function addModification()
-    {
-        $contact = new ModelContact();
-
-        $id = htmlspecialchars($_POST['id']);
-        $nom = htmlspecialchars($_POST['nom']);
-        $prenom = htmlspecialchars($_POST['prenom']);
-        $mail = htmlspecialchars($_POST['mail']);
-        $tel = htmlspecialchars($_POST['tel']);
-
-        if ($contact->modifContact($id, $nom, $prenom, $mail, $tel)) {
-        ?>
-            <div class="container my-5">
-                <div class="alert alert-success" role="alert">
-                    La modification est faite !
-                </div>
-            </div>
-        <?php
-        } else {
-        ?>
-            <div class="container my-5">
-                <div class="alert alert-danger" role="alert">
-                    Alert modification pas possible !
-                </div>
-            </div>
-        <?php
-        }
-    }
-
-    public static function deleteContact($id)
-    {
-        $contact = new ModelContact();
-        if ($contact->deleteContact($id)) {
-
-        ?>
-            <div class="container my-5">
-
-                <div class="alert alert-success" role="alert">
-                    La suppresion est faite !
-                </div>
-            </div>
-        <?php
-        } else {
-        ?>
-            <div class="container my-5">
-
-                <div class="alert alert-danger" role="alert">
-                    Alert suppression pas possible !
-                </div>
-            </div>
 <?php
-        }
     }
 }
