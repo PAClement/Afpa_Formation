@@ -110,7 +110,7 @@ class ViewContact
             <h1 class="my-3">Formulaire de modification</h1>
             <div class="row">
                 <div class="col-8">
-                    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) . '?id=' . $id ?>" method="POST">
+                    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]) ?>" method="POST">
 
                         <input type="text" name="id" class="d-none" id="id" value=<?= $him['id'] ?>>
                         <div class="form-group">

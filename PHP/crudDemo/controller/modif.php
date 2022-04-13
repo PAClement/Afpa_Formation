@@ -18,26 +18,33 @@
 
     ViewTemplate::header();
 
-    if (isset($_GET['id'])) {
-        $modifContact = new ModelContact();
-        if ($modifContact->oneContact($_GET['id'])) {
-            if (isset($_POST['modif'])) {
-                if ($modifContact->modifContact(htmlspecialchars($_POST['id']), htmlspecialchars($_POST["nom"]), htmlspecialchars($_POST["prenom"]), htmlspecialchars($_POST["mail"]), htmlspecialchars($_POST["tel"]))) {
+    $modifContact = new ModelContact();
 
-                    ViewTemplate::response("success", "Le contact à bien été modifié", "liste.php");
-                } else {
 
-                    ViewTemplate::response("danger", "Le contact n'a pas pu être modifié", "modif.php?id=" . htmlspecialchars($_POST["id"]));
-                }
+    if (isset($_POST['modif'])) {
+        if ($modifContact->oneContact($_POST['id'])) {
+            if ($modifContact->modifContact(htmlspecialchars($_POST['id']), htmlspecialchars($_POST["nom"]), htmlspecialchars($_POST["prenom"]), htmlspecialchars($_POST["mail"]), htmlspecialchars($_POST["tel"]))) {
+
+                ViewTemplate::response("success", "Le contact à bien été modifié", "liste.php");
             } else {
-                ViewContact::modifContact($_GET["id"]);
+
+                ViewTemplate::response("danger", "Le contact n'a pas pu être modifié", "modif.php?id=" . htmlspecialchars($_POST["id"]));
             }
         } else {
-            ViewTemplate::response("danger", "Aucun contact ne correspond", "liste.php");
+            ViewTemplate::response("warning", "Aucun contact ne correspond", "liste.php");
+        }
+    } else if (isset($_GET['id'])) {
+        if ($modifContact->oneContact($_GET['id'])) {
+            ViewContact::modifContact($_GET['id']);
+        } else {
+            ViewTemplate::response("warning", "Aucun contact ne correspond", "liste.php");
         }
     } else {
         ViewTemplate::response("warning", "Vous n'avez rien à faire là", "liste.php");
     }
+
+
+
 
 
     ViewTemplate::footer();
