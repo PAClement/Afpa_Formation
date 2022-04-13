@@ -50,13 +50,13 @@
 
         // Check if file already exists
         if (file_exists($target_file)) {
-            ViewUpload::stateUpload("danger", "Sorry, file already exists.");
+            ViewUpload::stateUpload("warning", "File already exists.");
             $uploadOk = 0;
         }
 
         // Check file size
         if ($FILES["fileToUpload"]["size"] > 500000) {
-            ViewUpload::stateUpload("danger", "Sorry, your file is too large.");
+            ViewUpload::stateUpload("warning", "File is too large.");
             $uploadOk = 0;
         }
 
@@ -65,13 +65,13 @@
             $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
             && $imageFileType != "gif"
         ) {
-            ViewUpload::stateUpload("danger", "orry, only JPG, JPEG, PNG & GIF files are allowed.");
+            ViewUpload::stateUpload("warning", "Only JPG, JPEG, PNG & GIF files are allowed.");
             $uploadOk = 0;
         }
 
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) {
-            ViewUpload::stateUpload("danger", "Sorry, your file was not uploaded.");
+            ViewUpload::stateUpload("danger", "Sorry, Your file was not uploaded.");
             // if everything is ok, try to upload file
         } else {
             if (move_uploaded_file($FILES["fileToUpload"]["tmp_name"], $target_file)) {
