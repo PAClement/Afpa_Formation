@@ -13,9 +13,24 @@
     <?php
     require_once '../view/ViewContact.php';
     require_once '../view/ViewTemplate.php';
+    require_once '../model/ModelContact.php';
 
     ViewTemplate::header();
-    ViewContact::ajoutContact();
+
+    if (isset($_POST["ajout"])) {
+        $newContact = new ModelContact();
+        if ($newContact->ajoutContact(htmlspecialchars($_POST["nom"]), htmlspecialchars($_POST["prenom"]), htmlspecialchars($_POST["mail"]), htmlspecialchars($_POST["tel"]))) {
+
+            ViewTemplate::response("success", "Le contact à bien été ajouté");
+        } else {
+
+            ViewTemplate::response("danger", "Le contact n'a pas pu être ajouté");
+        }
+    } else {
+
+        ViewContact::addContact();
+    }
+
     ViewTemplate::footer();
 
     ?>

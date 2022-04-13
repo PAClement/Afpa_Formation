@@ -64,7 +64,7 @@ class ViewContact
         <div class="container my-5">
 
             <h1 class="my-3">Formulaire d'ajout</h1>
-            <form method="POST" action="ajoutContact.php">
+            <form method="POST" action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                 <div class="form-group">
                     <label for="nom">Nom</label>
                     <input type="text" name="nom" class="form-control" id="nom">
@@ -81,54 +81,24 @@ class ViewContact
                     <label for="tel">tel</label>
                     <input type="tel" name="tel" class="form-control" id="tel">
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="ajout" class="btn btn-primary">Submit</button>
             </form>
         </div>
-        <?php
-    }
-
-    public static function ajoutContact()
-    {
-        $newContact = new ModelContact();
-
-        $nom = htmlspecialchars($_POST['nom']);
-        $prenom = htmlspecialchars($_POST['prenom']);
-        $mail = htmlspecialchars($_POST['mail']);
-        $tel = htmlspecialchars($_POST['tel']);
-
-        if ($newContact->ajoutContact($nom, $prenom, $mail, $tel)) {
-        ?>
-            <div class="container my-5">
-
-                <div class="alert alert-success" role="alert">
-                    Le contact est ajouté !
-                </div>
-            </div>
-        <?php
-        } else {
-        ?>
-            <div class="container my-5">
-
-                <div class="alert alert-danger" role="alert">
-                    Le contact n'a pas pu être ajouté !
-                </div>
-            </div>
-        <?php
-        }
+    <?php
     }
 
     public static function modifContact($id)
     {
         $contact = new ModelContact();
         $him = $contact->oneContact($id);
-        ?>
+    ?>
 
         <div class="container">
 
             <h1 class="my-3">Formulaire de modification</h1>
             <div class="row">
                 <div class="col-8">
-                    <form action="addModification.php" method="POST">
+                    <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
 
                         <input type="text" name="id" class="d-none" id="id" value=<?= $him['id'] ?>>
                         <div class="form-group">
@@ -147,7 +117,7 @@ class ViewContact
                             <label for="tel">tel</label>
                             <input type="tel" name="tel" class="form-control" id="tel" value=<?= $him['tel'] ?>>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="modif">Submit</button>
                     </form>
                 </div>
                 <div class="col-4">
@@ -180,7 +150,6 @@ class ViewContact
         if ($contact->modifContact($id, $nom, $prenom, $mail, $tel)) {
         ?>
             <div class="container my-5">
-
                 <div class="alert alert-success" role="alert">
                     La modification est faite !
                 </div>
@@ -189,7 +158,6 @@ class ViewContact
         } else {
         ?>
             <div class="container my-5">
-
                 <div class="alert alert-danger" role="alert">
                     Alert modification pas possible !
                 </div>

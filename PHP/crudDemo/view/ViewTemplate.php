@@ -17,10 +17,10 @@ class ViewTemplate
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="liste.php">Liste</a>
+                        <a class="nav-link" href="liste.php">Liste Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="add.php">Add contact</a>
+                        <a class="nav-link" href="ajoutContact.php">Ajouter Contact</a>
                     </li>
                 </ul>
             </div>
@@ -43,6 +43,17 @@ class ViewTemplate
             </div>
         </footer>
 
+    <?php
+    }
+
+    public static function response($state, $contain)
+    {
+    ?>
+        <div class="container my-5">
+            <div class="alert alert-<?= $state ?>" role="alert">
+                <?= $contain ?>
+            </div>
+        </div>
 <?php
     }
 }

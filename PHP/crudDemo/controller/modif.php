@@ -13,9 +13,23 @@
     <?php
     require_once '../view/ViewContact.php';
     require_once '../view/ViewTemplate.php';
+    require_once '../model/ModelContact.php';
 
     ViewTemplate::header();
-    ViewContact::modifContact(htmlspecialchars($_GET["id"]));
+
+    if (isset($_POST['modif'])) {
+        $modifContact = new ModelContact();
+        if ($modifContact->modifContact(htmlspecialchars($_POST['id']), htmlspecialchars($_POST["nom"]), htmlspecialchars($_POST["prenom"]), htmlspecialchars($_POST["mail"]), htmlspecialchars($_POST["tel"]))) {
+
+            ViewTemplate::response("success", "Le contact à bien été modifié");
+        } else {
+
+            ViewTemplate::response("danger", "Le contact n'a pas pu être modifié");
+        }
+    } else {
+        ViewContact::modifContact($_GET["id"]);
+    }
+
     ViewTemplate::footer();
 
     ?>
