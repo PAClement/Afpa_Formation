@@ -20,27 +20,18 @@
 
     $modifContact = new ModelContact();
 
+    if (isset($_POST['modif']) && $modifContact->oneContact($_POST['id'])) {
+        if ($modifContact->modifContact(htmlspecialchars($_POST['id']), htmlspecialchars($_POST["nom"]), htmlspecialchars($_POST["prenom"]), htmlspecialchars($_POST["mail"]), htmlspecialchars($_POST["tel"]))) {
 
-    if (isset($_POST['modif'])) {
-        if ($modifContact->oneContact($_POST['id'])) {
-            if ($modifContact->modifContact(htmlspecialchars($_POST['id']), htmlspecialchars($_POST["nom"]), htmlspecialchars($_POST["prenom"]), htmlspecialchars($_POST["mail"]), htmlspecialchars($_POST["tel"]))) {
-
-                ViewTemplate::response("success", "Le contact à bien été modifié", "liste.php");
-            } else {
-
-                ViewTemplate::response("danger", "Le contact n'a pas pu être modifié", "modif.php?id=" . htmlspecialchars($_POST["id"]));
-            }
+            ViewTemplate::response("success", "Le contact à bien été modifié", "liste.php");
         } else {
-            ViewTemplate::response("danger", "Aucun contact ne correspond", "liste.php");
+
+            ViewTemplate::response("danger", "Le contact n'a pas pu être modifié", "modif.php?id=" . htmlspecialchars($_POST["id"]));
         }
-    } else if (isset($_GET['id'])) {
-        if ($modifContact->oneContact($_GET['id'])) {
-            ViewContact::modifContact($_GET['id']);
-        } else {
-            ViewTemplate::response("danger", "Aucun contact ne correspond", "liste.php");
-        }
+    } else if (isset($_GET['id']) && $modifContact->oneContact($_GET['id'])) {
+        ViewContact::modifContact($_GET['id']);
     } else {
-        ViewTemplate::response("warning", "Vous n'avez rien à faire là", "liste.php");
+        ViewTemplate::response("warning", "Action non prise en compte", "liste.php");
     }
 
     ViewTemplate::footer();
