@@ -41,6 +41,9 @@ class ViewTemplate
                     <li class="nav-item">
                         <a class="nav-link" href="ajoutContact.php">Ajouter Contact</a>
                     </li>
+                    <li>
+                        <a class="nav-link" href="upload.php">Upload</a>
+                    </li>
                 </ul>
             </div>
         </nav>
