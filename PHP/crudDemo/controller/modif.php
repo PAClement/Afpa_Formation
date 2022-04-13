@@ -31,21 +31,17 @@
                 ViewTemplate::response("danger", "Le contact n'a pas pu être modifié", "modif.php?id=" . htmlspecialchars($_POST["id"]));
             }
         } else {
-            ViewTemplate::response("warning", "Aucun contact ne correspond", "liste.php");
+            ViewTemplate::response("danger", "Aucun contact ne correspond", "liste.php");
         }
     } else if (isset($_GET['id'])) {
         if ($modifContact->oneContact($_GET['id'])) {
             ViewContact::modifContact($_GET['id']);
         } else {
-            ViewTemplate::response("warning", "Aucun contact ne correspond", "liste.php");
+            ViewTemplate::response("danger", "Aucun contact ne correspond", "liste.php");
         }
     } else {
         ViewTemplate::response("warning", "Vous n'avez rien à faire là", "liste.php");
     }
-
-
-
-
 
     ViewTemplate::footer();
 

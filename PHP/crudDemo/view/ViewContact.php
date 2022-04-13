@@ -38,19 +38,15 @@ class ViewContact
                                 <td><?= $contact['mail'] ?></td>
                                 <td><?= $contact['tel'] ?></td>
                                 <td>
-                                    <a href="modif.php?id=<?= $contact['id'] ?>">
-                                        <button type="button" class="btn btn-info">
-                                            <span class="text-white icon">
-                                                <i class='bx bx-edit-alt py-1'></i>
-                                            </span>
-                                        </button>
+                                    <a class="btn btn-info" href="modif.php?id=<?= $contact['id'] ?>">
+                                        <span class="text-white icon">
+                                            <i class='bx bx-edit-alt py-1'></i>
+                                        </span>
                                     </a>
-                                    <a href="supp.php?id=<?= $contact['id'] ?>">
-                                        <button type="button" class="btn btn-danger">
-                                            <span class="text-white icon">
-                                                <i class='bx bx-trash py-1'></i>
-                                            </span>
-                                        </button>
+                                    <a class="btn btn-danger" onClick="javascript: return confirm('Êtes-vous sur de vouloir supprimer : <?= $contact['nom'] . ' ' . $contact['prenom'] ?> ?');" href="supp.php?id=<?= $contact['id'] ?>">
+                                        <span class="text-white icon">
+                                            <i class='bx bx-trash py-1'></i>
+                                        </span>
                                     </a>
                                 </td>
                             </tr>
