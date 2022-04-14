@@ -12,6 +12,5 @@ require_once '../view/ViewTemplate.php';
 
 
 ViewTemplate::head("Deconnexion");
-ViewTemplate::header();
 
 ViewTemplate::response("danger", "Deconnexion reussi ! A bientôt !", "connexion.php");

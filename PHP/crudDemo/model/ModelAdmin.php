@@ -2,70 +2,41 @@
 require_once "Connexion.php";
 
 
-class ModelContact
+class ModelAdmin
 {
     private $id;
     private $nom;
     private $prenom;
     private $mail;
     private $tel;
+    private $address;
 
-    public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $tel = null)
+    public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $address = null, $tel = null)
     {
         $this->id = $id;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->mail = $mail;
         $this->tel = $tel;
+        $this->address = $address;
     }
 
-
-    function listeContacts()
+    function getAllUser()
     {
+
         $idcon = connexion();
         $requete = $idcon->prepare("
-          SELECT * FROM contact ;
-        ");
+        SELECT
+            u.id, u.mail, u.password, uF.nom, uF.prenom, uF.address, uF.tel, uF.date_inscription, r.role
+        FROM
+            users u
+        INNER JOIN user_info uF ON uF.user_id = u.id
+        INNER JOIN roles r ON u.role_id = r.id       
+    ");
         $requete->execute();
         return $requete->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function oneContact($id)
-    {
-        $idcon = connexion();
-        $requete = $idcon->prepare("
-            SELECT * FROM contact WHERE id = ?
-        ");
-        $requete->execute(array($id));
-
-        return $requete->fetch(PDO::FETCH_ASSOC);
-    }
-
-    function ajoutContact($nom, $prenom, $mail, $tel)
-    {
-        $idcon = connexion();
-        $requete = $idcon->prepare("
-            INSERT INTO `contact` (`id`, `nom`, `prenom`, `mail`, `tel`)  VALUES (null,?,?,?,?)
-        ");
-        return $requete->execute(array($nom, $prenom, $mail, $tel));
-    }
-
-    function modifContact($id, $nom, $prenom, $mail, $tel)
-    {
-        $idcon = connexion();
-        $requete = $idcon->prepare("
-        UPDATE `contact` SET `nom`= ?,`prenom`= ?,`mail`= ?,`tel`= ? WHERE id = ?
-        ");
-        return $requete->execute(array($nom, $prenom, $mail, $tel, $id));
-    }
-
-    function deleteContact($id)
-    {
-        $idcon = connexion();
-        $requete = $idcon->prepare("
-        DELETE FROM `contact` WHERE id = ?        ");
-        return $requete->execute(array($id));
-    }
 
     /*
   
@@ -125,6 +96,18 @@ class ModelContact
     public function setTel($tel)
     {
         $this->tel = $tel;
+        return $this;
+    }
+
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
         return $this;
     }
 }

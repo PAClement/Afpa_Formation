@@ -1,7 +1,5 @@
 <?php
 
-require_once '../model/ModelContact.php';
-
 class ViewUser
 {
     public static function formConnexion()

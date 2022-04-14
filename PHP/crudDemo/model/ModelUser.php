@@ -9,14 +9,16 @@ class ModelUser
     private $prenom;
     private $mail;
     private $tel;
+    private $address;
 
-    public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $tel = null)
+    public function __construct($id = null, $nom = null, $prenom = null, $mail = null, $address = null, $tel = null)
     {
         $this->id = $id;
         $this->nom = $nom;
         $this->prenom = $prenom;
         $this->mail = $mail;
         $this->tel = $tel;
+        $this->address = $address;
     }
 
     function getUser($mail)
@@ -27,6 +29,17 @@ class ModelUser
             SELECT * FROM users WHERE mail = ?
         ");
         $requete->execute(array($mail));
+
+        return $requete->fetch(PDO::FETCH_ASSOC);
+    }
+
+    function getUserById($id)
+    {
+        $idcon = connexion();
+        $requete = $idcon->prepare("
+            SELECT * FROM users WHERE id = ?
+        ");
+        $requete->execute(array($id));
 
         return $requete->fetch(PDO::FETCH_ASSOC);
     }
@@ -50,7 +63,7 @@ class ModelUser
 
         $idcon = connexion();
         $requete = $idcon->prepare("
-        INSERT INTO `users`(`id`, `mail`, `password`, `token`) VALUES (null, ?, ?, ?)
+        INSERT INTO `users`(`id`, `mail`, `password`,`role_id`, `token`) VALUES (null, ?, ?,2, ?)
         ");
         $requete->execute(array($info['mail'], $info['password'], $info['token']));
 
@@ -131,6 +144,18 @@ class ModelUser
     public function setTel($tel)
     {
         $this->tel = $tel;
+        return $this;
+    }
+
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
         return $this;
     }
 }

@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once '../model/ModelUser.php';
+
 class ViewTemplate
 {
 
@@ -26,14 +28,20 @@ class ViewTemplate
 
     public static function header()
     {
+
+        if (isset($_SESSION['user_id'])) {
+
+            $viewConn = new ModelUser();
+            $tab = $viewConn->getUserById($_SESSION['user_id']);
+        }
     ?>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom shadow-sm">
             <h5 class="my-0 mr-md-auto font-weight-normal text-white">clement's Industry</h5>
             <?php if (isset($_SESSION['user_id'])) { ?>
                 <nav class="my-2 my-md-0 mr-md-3 ">
-                    <a class="p-2 text-white" href="liste.php">Liste</a>
-                    <a class="p-2 text-white" href="ajoutContact.php">Ajouter contact</a>
-                    <a class="p-2 text-white" href="upload.php">Upload</a>
+                    <?php if ($tab['role_id'] == 1) { ?>
+                        <a class="btn btn-warning mx-3" href="userGestion.php">User gestion</a>
+                    <?php } ?>
                 </nav>
                 <a class="btn btn-outline-primary mx-3" href="membre.php">Espace membre</a>
                 <a class="btn btn-danger" href="deconnexion.php">Se deconnecter</a>
@@ -50,14 +58,15 @@ class ViewTemplate
     ?>
 
 
-        <footer class="text-muted bg-dark text-white py-5">
+        <footer class="text-muted bg-dark text-white py-5 mt-auto">
             <div class="container text-white">
                 <h1>Im a footer</h1>
                 <br>
                 <h2>copyright</h2>
             </div>
         </footer>
-
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
     <?php
     }
 
