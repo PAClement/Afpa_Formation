@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 
 class ViewTemplate
 {
@@ -26,27 +27,21 @@ class ViewTemplate
     public static function header()
     {
     ?>
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
-            <a class="navbar-brand">Hey im a navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="liste.php">Liste Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ajoutContact.php">Ajouter Contact</a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="upload.php">Upload</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom shadow-sm">
+            <h5 class="my-0 mr-md-auto font-weight-normal text-white">clement's Industry</h5>
+            <?php if (isset($_SESSION['user_id'])) { ?>
+                <nav class="my-2 my-md-0 mr-md-3 ">
+                    <a class="p-2 text-white" href="liste.php">Liste</a>
+                    <a class="p-2 text-white" href="ajoutContact.php">Ajouter contact</a>
+                    <a class="p-2 text-white" href="upload.php">Upload</a>
+                </nav>
+                <a class="btn btn-outline-primary mx-3" href="membre.php">Espace membre</a>
+                <a class="btn btn-danger" href="deconnexion.php">Se deconnecter</a>
+            <?php } else { ?>
+                <a class="btn btn-outline-primary" href="connexion.php">Sign in</a>
+                <a class="btn btn-primary mx-3" href="inscription.php">Sign up</a>
+            <?php } ?>
+        </div>
     <?php
     }
 
@@ -66,22 +61,30 @@ class ViewTemplate
     <?php
     }
 
-    public static function response($state, $contain, $link)
+    public static function response($state, $contain, $link = null)
     {
     ?>
         <div class="container my-5">
             <div class="alert alert-<?= $state ?>" role="alert">
                 <?= $contain ?>
             </div>
-            <div class="spinner-border" role="status">
-                <span class="sr-only">Loading ...</span>
-            </div>
-            Redirection en cours ...
+            <?php
+            if ($link !== null) {
+            ?>
+                <div class="spinner-border" role="status">
+                    <span class="sr-only">Loading ...</span>
+                </div>
+                Redirection en cours ...
+            <?php
+            }
+            ?>
         </div>
         <script>
-            setInterval(() => {
-                window.location.replace("<?= $link ?>");
-            }, 2000);
+            <?php if ($link !== null) { ?>
+                setInterval(() => {
+                    window.location.replace("<?= $link ?>");
+                }, 2000);
+            <?php } ?>
         </script>
 <?php
     }
