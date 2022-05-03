@@ -62,3 +62,5 @@ d2d718,::1,GET,https://localhost:8000/,1651574536,,404
 70f9d4,::1,GET,https://localhost:8000/index,1651574619,fdcff5,404
 fdcff5,::1,GET,https://localhost:8000/index,1651574619,,404
 026f33,::1,GET,https://localhost:8000/test,1651574631,,200
+b23cac,::1,GET,https://localhost:8000/,1651576076,,404
+575ac2,::1,GET,https://localhost:8000/,1651576080,,404
