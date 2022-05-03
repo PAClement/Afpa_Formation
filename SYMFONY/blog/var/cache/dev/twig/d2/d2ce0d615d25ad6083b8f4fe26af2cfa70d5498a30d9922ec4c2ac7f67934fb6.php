@@ -68,10 +68,16 @@ class __TwigTemplate_08e1ab0b780c1118aa31bc00c7c2f8f355bb21ebb68e1eb75f8656fd698
         // line 20
         echo "\t</head>
 \t<body>
+\t\t<nav class=\"navbar navbar-dark bg-dark\">
+\t\t\t<div class=\"container-fluid\">
+\t\t\t\t<a class=\"navbar-brand\" href=\"#\">Je suis une navbar</a>
+\t\t\t</div>
+\t\t</nav>
+
 \t\t";
-        // line 22
+        // line 28
         $this->displayBlock('body', $context, $blocks);
-        // line 23
+        // line 29
         echo "\t</body>
 </html>
 ";
@@ -150,7 +156,7 @@ class __TwigTemplate_08e1ab0b780c1118aa31bc00c7c2f8f355bb21ebb68e1eb75f8656fd698
 
     }
 
-    // line 22
+    // line 28
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -175,7 +181,7 @@ class __TwigTemplate_08e1ab0b780c1118aa31bc00c7c2f8f355bb21ebb68e1eb75f8656fd698
 
     public function getDebugInfo()
     {
-        return array (  154 => 22,  141 => 18,  131 => 17,  117 => 13,  107 => 12,  87 => 6,  75 => 23,  73 => 22,  69 => 20,  67 => 17,  64 => 16,  61 => 12,  56 => 8,  54 => 6,  47 => 1,);
+        return array (  160 => 28,  147 => 18,  137 => 17,  123 => 13,  113 => 12,  93 => 6,  81 => 29,  79 => 28,  69 => 20,  67 => 17,  64 => 16,  61 => 12,  56 => 8,  54 => 6,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -201,6 +207,12 @@ class __TwigTemplate_08e1ab0b780c1118aa31bc00c7c2f8f355bb21ebb68e1eb75f8656fd698
 \t\t{% endblock %}
 \t</head>
 \t<body>
+\t\t<nav class=\"navbar navbar-dark bg-dark\">
+\t\t\t<div class=\"container-fluid\">
+\t\t\t\t<a class=\"navbar-brand\" href=\"#\">Je suis une navbar</a>
+\t\t\t</div>
+\t\t</nav>
+
 \t\t{% block body %}{% endblock %}
 \t</body>
 </html>
