@@ -29,14 +29,14 @@ class AppFixtures extends Fixture
 
         for ($i = 0; $i < 15; $i++) {
             $categorie = new Category();
-            $categorie->setTitle($faker->text(50))->setDescription($faker->text(250))->setImage($faker->imageUrl());
+            $categorie->setTitle($faker->text(50))->setDescription($faker->text(50))->setImage("https://placeholdpic.com/150x150");
             $manager->persist($categorie);
             $categories[] = $categorie;
         }
 
         for ($i = 0; $i < 100; $i++) {
             $article = new Article();
-            $article->setTitle($faker->text(50))->setContent($faker->text(6000))->setImage($faker->imageUrl())
+            $article->setTitle($faker->text(25))->setContent($faker->text(100))->setImage("https://placeholdpic.com/150x150")
                 ->setCreatedAt(new DateTimeImmutable)->addCategory($categories[$faker->numberBetween(0, 14)])
                 ->setAuthor($users[$faker->numberBetween(0, 49)]);
             $manager->persist($article);

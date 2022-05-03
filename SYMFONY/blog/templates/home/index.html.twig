@@ -9,17 +9,22 @@
 		<div class="d-flex flex-wrap justify-content-around">
 			{% for value in data %}
 				<div class="card m-3" style="width: 18rem;">
-					<img src="..." class="card-img-top" alt="...">
+					<img src="{{value.image}}" class="card-img-top" alt=" imagearticle - {{value.title}} ">
 					<div class="card-body">
 						<h5 class="card-title">
 							{{value.id}}
 							-
-							{{value.title}}</h5>
+							{{value.title}}
+						</h5>
 						<ul>
-							<li>Compte crée le :
-								{{value.createdAt | date("d/m/Y")}}</li>
-							<li>à
-								{{value.createdAt | date("H:i")}}</li>
+							<li>
+								Article crée le :
+								{{value.createdAt | date("d/m/Y")}}
+							</li>
+							<li>
+								à
+								{{value.createdAt | date("H:i:s")}}
+							</li>
 						</ul>
 					</div>
 				</div>
