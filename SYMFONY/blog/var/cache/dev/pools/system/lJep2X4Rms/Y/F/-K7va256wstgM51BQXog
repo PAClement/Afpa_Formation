@@ -8,7 +8,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'stdClass' => [
             'type' => [
-                'datetime',
+                'datetime_immutable',
             ],
             'precision' => [
                 null,
