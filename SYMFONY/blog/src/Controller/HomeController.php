@@ -34,7 +34,7 @@ class HomeController extends AbstractController
     public function show(Article $article): Response
     {
         //$data = $this->ar->find($id);
-        dump($article);
+        // dump($article);
         if (!$article) {
             $this->redirectToRoute("app_home");
         }

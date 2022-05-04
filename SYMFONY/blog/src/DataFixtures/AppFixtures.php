@@ -36,7 +36,7 @@ class AppFixtures extends Fixture
 
         for ($i = 0; $i < 100; $i++) {
             $article = new Article();
-            $article->setTitle($faker->text(25))->setContent($faker->text(100))->setImage("https://placeholdpic.com/150x150")
+            $article->setTitle($faker->text(25))->setContent($faker->text(6000))->setImage("https://placeholdpic.com/150x150")
                 ->setCreatedAt(new DateTimeImmutable)->addCategory($categories[$faker->numberBetween(0, 14)])
                 ->setAuthor($users[$faker->numberBetween(0, 49)]);
             $manager->persist($article);

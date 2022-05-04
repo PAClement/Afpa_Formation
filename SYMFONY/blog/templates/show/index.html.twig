@@ -6,7 +6,9 @@
 {% block body %}
 
 	<div class="container">
-		<div class="d-flex flex-wrap justify-content-around">
+		<a href="{{ path('app_home') }}" class="my-3">
+			revenir au menu</a>
+		<div class="">
 			<div class="card m-3" style="width: 18rem;">
 				<img src="{{data.image}}" class="card-img-top" alt=" imagearticle - {{data.title}} ">
 				<div class="card-body">
@@ -17,7 +19,7 @@
 					</h5>
 					<ul>
 						<li>
-							Article crée le :
+							article crée le :
 							{{data.createdAt | date("d/m/Y")}}
 						</li>
 						<li>
@@ -28,6 +30,5 @@
 				</div>
 			</div>
 		</div>
-
 	</div>
 {% endblock %}

@@ -1,35 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!
+{% block title %}Liste des articles
 {% endblock %}
 
 {% block body %}
-
 	<div class="container">
-		<div class="d-flex flex-wrap justify-content-around">
-			{% for value in data %}
-				<div class="card m-3" style="width: 18rem;">
-					<img src="{{value.image}}" class="card-img-top" alt=" imagearticle - {{value.title}} ">
-					<div class="card-body">
-						<h5 class="card-title">
-							{{value.id}}
-							-
-							{{value.title}}
-						</h5>
-						<ul>
-							<li>
-								Article crée le :
-								{{value.createdAt | date("d/m/Y")}}
-							</li>
-							<li>
-								à
-								{{value.createdAt | date("H:i:s")}}
-							</li>
-						</ul>
-					</div>
-				</div>
-			{% endfor %}
+		<div class="row">
+			<h1 class="text-center my-5">Liste des articles</h1>
 		</div>
+		<div class="row">
+			<div class="d-flex justify-content-around flex-wrap">
+				{% for article in data %}
+					<div class="card col-md-3 m-1">
+						<img src="{{asset('assets/img/article.jpg')}}" class="card-img-top mt-3" alt="...">
 
+						<h5 class="card-title">{{article.title}}</h5>
+						<p class="card-text">{{ article.content | length > 50 ? article.content|slice(0, 75) ~ '...' : article.content  }}</p>
+						<div class="card-body">
+							<p class="date">
+								Ecrit le
+								{{article.createdAt | date("d/m/Y")}}
+								à
+								{{article.createdAt | date("H:i")}}
+								par
+								{{article.author}}
+							</p>
+						</div>
+						<a href="{{ path('show', {'id' : article.id}) }}" class="btn btn-primary mb-3">Lire >></a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
 	</div>
 {% endblock %}
