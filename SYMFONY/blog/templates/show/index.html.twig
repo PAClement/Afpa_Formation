@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Un article !
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+		<div class="d-flex flex-wrap justify-content-around">
+			<div class="card m-3" style="width: 18rem;">
+				<img src="{{data.image}}" class="card-img-top" alt=" imagearticle - {{data.title}} ">
+				<div class="card-body">
+					<h5 class="card-title">
+						{{data.id}}
+						-
+						{{data.title}}
+					</h5>
+					<ul>
+						<li>
+							Article crée le :
+							{{data.createdAt | date("d/m/Y")}}
+						</li>
+						<li>
+							à
+							{{data.createdAt | date("H:i:s")}}
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+	</div>
+{% endblock %}
