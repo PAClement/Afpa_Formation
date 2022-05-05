@@ -7,16 +7,19 @@
 
 	<div class="container">
 		<a href="{{ path('app_home') }}" class="my-3">
-			revenir au menu</a>
-		<div class="">
+			--===	revenir au menu</a>
+		<div class="my-3 d-flex justify-content-center">
 			<div class="card m-3" style="width: 18rem;">
-				<img src="{{data.image}}" class="card-img-top" alt=" imagearticle - {{data.title}} ">
+				<img src="{{asset('assets/img/blog/article/' ~ data.image)}}" class="card-img-top" alt=" imagearticle - {{data.title}} ">
 				<div class="card-body">
 					<h5 class="card-title">
 						{{data.id}}
 						-
 						{{data.title}}
 					</h5>
+					<h6>
+						{{data.content | raw}}
+					</h6>
 					<ul>
 						<li>
 							article crée le :
