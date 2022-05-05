@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Article;
+use App\Entity\Category;
 use App\Repository\ArticleRepository;
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -11,9 +13,13 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
 
-    public function __construct(ArticleRepository $ar)
+    private $ar;
+    private $cr;
+
+    public function __construct(ArticleRepository $ar, CategoryRepository $cr)
     {
         $this->ar = $ar;
+        $this->cr = $cr;
     }
 
     /**
@@ -21,10 +27,14 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
-        $data = $this->ar->findAll();
-        dump($data);
+        $dataArticle = $this->ar->findAll();
+        $dataCategory = $this->cr->findAll();
+
+        dump($dataCategory);
+
         return $this->render('home/index.html.twig', [
-            'data' => $data,
+            'data' => $dataArticle,
+            'categories' => $dataCategory,
         ]);
     }
 
@@ -40,6 +50,26 @@ class HomeController extends AbstractController
         }
         return $this->render('show/index.html.twig', [
             "data" => $article
+        ]);
+    }
+
+    /**
+     * @Route("/showArticles/{id}", name="show_articles")
+     */
+    public function showArticles(?Category $category): Response //NB : ? dans le param de la fonction signifie que je peux accepter un param null (si l’id de la category n’existe pas).
+    {
+
+        if ($category) {
+
+            $articles = $category->getArticles()->getValues();
+            dump($articles);
+        } else {
+
+            return $this->redirectToRoute("app_home");
+        }
+        return $this->render('home/index.html.twig', [
+            "data" => $articles,
+            "categories" => $this->cr->findAll()
         ]);
     }
 }
