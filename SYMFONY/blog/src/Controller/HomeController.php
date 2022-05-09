@@ -6,9 +6,11 @@ use App\Entity\Article;
 use App\Entity\Category;
 use App\Repository\ArticleRepository;
 use App\Repository\CategoryRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
@@ -25,15 +27,19 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="app_home")
      */
-    public function index(): Response
+    public function index(Request $request, PaginatorInterface $paginator): Response
     {
         $dataArticle = $this->ar->findAll();
         $dataCategory = $this->cr->findAll();
 
-        dump($dataCategory);
+        $articlesPag = $paginator->paginate(
+            $dataArticle, // Requête contenant les données à paginer (ici nos articles)
+            $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            7 // Nombre de résultats par page
+        );
 
         return $this->render('home/index.html.twig', [
-            'data' => $dataArticle,
+            'data' => $articlesPag,
             'categories' => $dataCategory,
         ]);
     }
@@ -56,19 +62,24 @@ class HomeController extends AbstractController
     /**
      * @Route("/showArticles/{id}", name="show_articles")
      */
-    public function showArticles(?Category $category): Response //NB : ? dans le param de la fonction signifie que je peux accepter un param null (si l’id de la category n’existe pas).
+    public function showArticles(?Category $category, PaginatorInterface $paginator, Request $request): Response //NB : ? dans le param de la fonction signifie que je peux accepter un param null (si l’id de la category n’existe pas).
     {
 
         if ($category) {
 
             $articles = $category->getArticles()->getValues();
-            dump($articles);
+
+            $articlesPag = $paginator->paginate(
+                $articles, // Requête contenant les données à paginer (ici nos articles)
+                $request->query->getInt('page', 1), // Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+                6 // Nombre de résultats par page
+            );
         } else {
 
             return $this->redirectToRoute("app_home");
         }
         return $this->render('home/index.html.twig', [
-            "data" => $articles,
+            "data" => $articlesPag,
             "categories" => $this->cr->findAll()
         ]);
     }
