@@ -17,10 +17,19 @@
 			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		</form>
-		<ul class="nav navbar-nav navbar-right mr-3">
-			<li>
-				<a href="{{ path('security_register')}}" class="btn btn-success">Inscription</a>
-			</li>
+		<ul class="nav navbar-nav navbar-right ml-5">
+			{% if app.user %}
+				<li>
+					<a href="{{ path('security_logout')}}" class="btn btn-danger ml-3">Déconnexion</a>
+				</li>
+			{% else %}
+				<li>
+					<a href="{{ path('security_register')}}" class="btn btn-success">Inscription</a>
+				</li>
+				<li>
+					<a href="{{ path('security_login')}}" class="btn btn-info ml-3">Connexion</a>
+				</li>
+			{% endif %}
 		</ul>
 	</div>
 </nav>
