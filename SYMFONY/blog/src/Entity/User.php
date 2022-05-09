@@ -8,9 +8,15 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @ORM\Table(name="`user`")
+ * @UniqueEntity(fields="username", message="Le nom d'utilisateur existe déjà.")
+ * @UniqueEntity(fields="email", message="L'adresse mail existe déjà.")
  */
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -34,21 +40,49 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\Regex(
+     *     pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/",
+     *     message="Le mot de passe est dans un format invalide."
+     * )
+     * @Assert\NotCompromisedPassword(
+     *      message="Le mot de passe est compromis, veuillez le changer SVP."
+     * )
      */
     private $password;
 
     /**
+     * @var string
+     * passwordConfirm (juste pour vérifier - pas en bdd)
+     * @Assert\EqualTo(
+     *      propertyPath = "password", 
+     *      message="les deux mots de passes ne sont pas identiques"
+     * )
+     */
+    private $passwordConfirm;
+
+    /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(
+     *     pattern="/^[\p{L}\s]{2,}$/u",
+     *     message="Le prénom ne doit contenir que des lettres, 2 caractères minmum."
+     * )
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(
+     *     pattern="/^[\p{L}\s]{2,}$/u",
+     *     message="Le nom de famille ne doit contenir que des lettres, 2 caractères minmum."
+     * )
      */
     private $lastName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(
+     *     message = "L'adresse mail n'est pas valide."
+     * )
      */
     private $email;
 
@@ -231,6 +265,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
                 $article->setAuthor(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function getPasswordConfirm(): string
+    {
+        return (string) $this->passwordConfirm;
+    }
+
+    public function setPasswordConfirm(string $passwordConfirm): self
+    {
+        $this->passwordConfirm = $passwordConfirm;
 
         return $this;
     }
