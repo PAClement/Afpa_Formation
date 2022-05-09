@@ -13,9 +13,12 @@
 				<a class="nav-link" href="#">Link</a>
 			</li>
 		</ul>
-		<form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+		<form class="form-inline" role="search" method="post" action="{{ path('recherche')}}">
+			<div class="form-group">
+				<input type="text" class="form-control mr-2" name="title" placeholder="Recherche...">
+				<input type="date" class="form-control mr-2" name="date" placeholder="Choisir une date">
+			</div>
+			<button type="submit" class="btn btn-secondary mr-4">Chercher</button>
 		</form>
 		<ul class="nav navbar-nav navbar-right ml-5">
 			{% if app.user %}
