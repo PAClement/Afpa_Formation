@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Client = ({ client }) => {
     return (
@@ -7,7 +8,7 @@ const Client = ({ client }) => {
                 <h5 className="card-title">{client.nom} {client.prenom}</h5>
                 <p className="card-text">Société : {client.societe}</p>
                 <h6>Ca : {client.ca}</h6>
-                <a href="#" className="btn btn-primary">Voir le client</a>
+                <Link to={`/clients/${client.id}`} className="btn btn-primary">Voir le client</Link>
             </div>
         </div>
     );
