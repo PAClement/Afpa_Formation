@@ -38,10 +38,9 @@ const Recherche = () => {
         if (rech !== '') {
 
             const rtRecherche = clients.filter((client) => {
-                return client.societe.toLowerCase().startsWith(rech.toLowerCase());
+                return client.societe.toLowerCase().startsWith(rech.toLowerCase()) || client.nom.toLowerCase().startsWith(rech.toLowerCase()) || client.prenom.toLowerCase().startsWith(rech.toLowerCase());
             })
 
-            // console.log(rtRecherche);
             setRechercheClients(rtRecherche);
         }
         else {
