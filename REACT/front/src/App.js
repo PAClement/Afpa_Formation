@@ -1,16 +1,20 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
-import Test from "./pages/Test";
 import PageClient from "./pages/PageClient";
+import AddClient from "./pages/AjoutClient";
+import SuppClient from "./components/SuppClient";
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/test" element={<Test />} />
         <Route path="/clients/:id" name="PageClient" element={<PageClient />} />
+
+        <Route path="/clients/supp/:id" element={<SuppClient />} />
+
+        <Route path="/add" element={<AddClient />} />
         <Route path="*" element={<Home />} />
       </Routes>
     </Router>
